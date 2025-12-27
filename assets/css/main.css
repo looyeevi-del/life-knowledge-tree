@@ -1,0 +1,37 @@
+:root {
+  --land-size: 180px;
+  --land-gradient: radial-gradient(circle at 50% 40%, #d3c1a5 0%, #b59a77 35%, #8c704f 70%, #5e4b33 100%);
+  --bg-color: #f4f0e9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+}
+
+.land {
+  width: var(--land-size);
+  height: var(--land-size);
+  background: var(--land-gradient);
+  border-radius: 50%;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), inset 0 -8px 18px rgba(0, 0, 0, 0.25);
+  animation: breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
