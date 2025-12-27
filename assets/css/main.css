@@ -1,0 +1,65 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/assets/css/main.css b/assets/css/main.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..b82e30b04ed2747dd7172410d7547a0d0f318415
+--- /dev/null
++++ b/assets/css/main.css
+@@ -0,0 +1,37 @@
++:root {
++  --land-size: 180px;
++  --land-gradient: radial-gradient(circle at 50% 40%, #d3c1a5 0%, #b59a77 35%, #8c704f 70%, #5e4b33 100%);
++  --bg-color: #f4f0e9;
++}
++
++* {
++  margin: 0;
++  padding: 0;
++  box-sizing: border-box;
++}
++
++body {
++  min-height: 100vh;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++  background: var(--bg-color);
++}
++
++.land {
++  width: var(--land-size);
++  height: var(--land-size);
++  background: var(--land-gradient);
++  border-radius: 50%;
++  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), inset 0 -8px 18px rgba(0, 0, 0, 0.25);
++  animation: breathe 5s ease-in-out infinite;
++}
++
++@keyframes breathe {
++  0%, 100% {
++    transform: scale(1);
++  }
++  50% {
++    transform: scale(1.03);
++  }
++}
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..7e2a7ad2bb676e00bc13af0d7d506de48c9b63bf
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,12 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <link rel="stylesheet" href="assets/css/main.css">
++  <title>Land</title>
++</head>
++<body>
++  <div class="land"></div>
++</body>
++</html>
+ 
+EOF
+)
